@@ -1,9 +1,9 @@
 {
   "name": "mean-translate",
-  "version": "0.0.0",
-  "description": "Some description of mean-translate",
+  "version": "0.0.1",
+  "description": "MEAN - A Modern Stack: Translate tokens",
   "author": {
-    "name": "mean scaffold"
+    "name": "Rivka Tzur"
   },
   "mean" : true,
   "engines": {
