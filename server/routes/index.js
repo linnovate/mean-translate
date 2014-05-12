@@ -34,9 +34,13 @@ module.exports = function(Translate, app, auth, database) {
         languages.forEach(function(language) {
             app.get('/' + language.identifier, function(req, res) {
                 res.render('index', {
-                    user: req.user ? JSON.stringify(req.user.name) : 'null',
-                    roles: req.user ? JSON.stringify(req.user.roles) : JSON.stringify(['annonymous'])
-                });
+                    user: req.user ? {
+                        name: req.user.name,
+                        _id: req.user._id,
+                        username: req.user.username,
+                        roles: req.user ? JSON.stringify(req.user.roles) : JSON.stringify(['annonymous']),
+                    } : {}
+                });               
             });
         })
     });
