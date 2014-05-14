@@ -16,19 +16,7 @@ angular.module('mean.system').directive('meanTranslate', ['Global', '$http', 'Tr
 
 				scope.$watch('global.lang', function(a, b) {
 					if (scope.global.lang && a !== b) {
-						// location.href = location.origin + '/' + scope.global.lang + location.hash;
-						$http({
-							method: 'GET',
-							url: '/' + scope.global.lang
-						}).
-						success(function(data, status, headers, config) {
-							location.href = location.origin + '/' + scope.global.lang + location.hash;
-						}).
-						error(function(data, status, headers, config) {
-							console.log('error');
-							// called asynchronously if an error occurs
-							// or server returns response with an error status.
-						});
+						location.href = location.origin + '/' + scope.global.lang + location.hash;
 					}
 				});
 			}
