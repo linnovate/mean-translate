@@ -25,7 +25,7 @@ angular.module('mean.system').directive('meanTranslate', ['Global', '$http', 'Tr
 							location.href = location.origin + '/' + scope.global.lang + location.hash;
 						}).
 						error(function(data, status, headers, config) {
-							console.log('error')
+							console.log('error');
 							// called asynchronously if an error occurs
 							// or server returns response with an error status.
 						});
