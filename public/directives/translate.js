@@ -11,13 +11,37 @@ angular.module('mean.system').directive('meanTranslate', ['Global', '$http', 'Tr
 				scope.global = Global;
 				Translate.query(function(langs) {
 					scope.global.langs = langs;
+
+					langs.forEach(function(lang) {
+						if (lang['default']) {
+							scope.global.defaultLanguage = lang.identifier;
+						}
+					});
 				});
 				scope.global.lang = location.pathname.split('/')[1];
 
 				scope.$watch('global.lang', function(a, b) {
-					if (scope.global.lang && a !== b) {
-						location.href = location.origin + '/' + scope.global.lang + location.hash;
-					}
+
+					Translate.query(function(langs) {
+						scope.global.langs = langs;
+
+						langs.forEach(function(lang) {
+							if (lang['default']) {
+								scope.global.defaultLanguage = lang.identifier;
+							}
+						});
+
+						if (scope.global.lang && a !== b) {
+							if (scope.global.lang === scope.global.defaultLanguage) {
+
+								location.href = location.origin + '/' + location.hash;
+							} else {
+								location.href = location.origin + '/' + scope.global.lang + location.hash;
+							}
+
+						}
+
+					});
 				});
 			}
 		};

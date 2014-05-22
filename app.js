@@ -3,9 +3,9 @@
  * Defining the Package
  */
 
-var Module = require("meanio").Module;
+var Module = require('meanio').Module;
 
-var Translate = new Module("mean-translate");
+var Translate = new Module('mean-translate');
 
 /*
  * All MEAN packages require registration
@@ -19,13 +19,38 @@ Translate.register(function(app, auth, database) {
 	// 	settings.save();
 	// })
 
+	Translate.settings(function(err, data) {
+		if (!data) {
+
+			Translate.languages = {
+				'list': [{
+					'identifier': 'en',
+					'default': true
+				}, {
+					'identifier': 'sp'
+				}]
+			};
+
+			Translate.settings(Translate.languages);
+
+		} else {
+			Translate.languages = data.settings;
+		}
+
+
+	});
+
+
 
 	Translate.all = function(callback) {
-		callback([{
-			'identifier': 'en'
-		}, {
-			'identifier': 'sp'
-		}])
+
+		callback(Translate.languages.list);
+
+
+		// Translate.settings(function(err,data) {
+		// 		callback(data.settings.languages);
+		// })
+		//callback();
 		//instead of passing language we will query mongo 
 		//for a list of all the language and pass it to the routes.
 		// Translate.settings.get(function(settings) {
