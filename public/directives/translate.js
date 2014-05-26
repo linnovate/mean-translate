@@ -9,15 +9,37 @@ angular.module('mean.system').directive('meanTranslate', ['Global', '$http', 'Tr
 			replace: true,
 			link: function(scope, elem, attrs) {
 				scope.global = Global;
-				Translate.query(function(langs) {
-					scope.global.langs = langs;
+				Translate.getLangs(function(langs) {
+					scope.global.langs = langs;					
+					langs.forEach(function(lang) {
+						if (lang['default']) {
+							scope.global.defaultLanguage = lang;
+						}
+					});
+
+					var lang = location.pathname.split('/')[1]
+					scope.global.lang = lang ? lang : scope.global.defaultLanguage.identifier;
 				});
-				scope.global.lang = location.pathname.split('/')[1];
 
 				scope.$watch('global.lang', function(a, b) {
-					if (scope.global.lang && a !== b) {
-						location.href = location.origin + '/' + scope.global.lang + location.hash;
-					}
+					Translate.getLangs(function(langs) {
+						scope.global.langs = langs;
+						langs.forEach(function(lang) {
+							if (lang['default']) {
+								scope.global.defaultLanguage = lang;
+							}
+						});
+
+						if (scope.global.lang && a !== b) {
+							if (scope.global.lang === scope.global.defaultLanguage.identifier) {
+								location.href = location.origin + '/' + location.hash;
+							} else {
+								location.href = location.origin + '/' + scope.global.lang + location.hash;
+							}
+
+						}
+
+					});
 				});
 			}
 		};
