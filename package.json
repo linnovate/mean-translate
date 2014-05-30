@@ -3,15 +3,16 @@
   "version": "0.0.1",
   "description": "MEAN - A Modern Stack: Translate tokens",
   "author": {
-    "name": "Rivka Tzur"
+    "name": "Linnovate"
   },
   "mean": true,
   "engines": {
     "node": "0.10.x",
     "npm": "1.4.x"
   },
-  
-  "dependencies": {},
+  "dependencies": {
+		"mean-tokens":"0.0.4"
+	},
   "license": "GPL",
   "readme": "README: mean-translate",
   "readmeFilename": "README.md",
