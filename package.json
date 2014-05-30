@@ -11,7 +11,7 @@
     "npm": "1.4.x"
   },
   "dependencies": {
-		"mean-tokens":"0.0.4"
+		"mean-tokens":"https://github.com/linnovate/mean-tokens/#0.0.4"
 	},
   "license": "GPL",
   "readme": "README: mean-translate",
