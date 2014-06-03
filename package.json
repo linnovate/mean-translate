@@ -1,0 +1,23 @@
+{
+  "name": "mean-translate",
+  "version": "0.0.1",
+  "description": "MEAN - A Modern Stack: Translate tokens",
+  "author": {
+    "name": "Linnovate"
+  },
+  "mean": true,
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.4.x"
+  },
+  "dependencies": {
+    "mean-tokens": "git://github.com/linnovate/mean-tokens.git"
+  },
+  "license": "GPL",
+  "readme": "README: mean-translate",
+  "readmeFilename": "README.md",
+  "_id": "mean-translate@0.0.1",
+  "_shasum": "6f9c19234dc1f9c59f818a4f6f9a5523339a3f27",
+  "_from": "https://github.com/linnovate/mean-translate/tarball/master",
+  "_resolved": "https://github.com/linnovate/mean-translate/tarball/master"
+}

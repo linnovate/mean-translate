@@ -1,0 +1,15 @@
+<div class="" data-ng-controller="MeanTranslateController">
+   	<div class="alert alert-info">Your new language will be added to your url</div>
+   	<form class="form-inline" data-ng-submit="addLanguage()">
+		<!-- <input type="text" class="form-control" data-ng-model="name" placeholder="Language" /> -->
+		<label class="control-label">Add a new language</label>
+		<input type="text" class="form-control" data-ng-model="newLanguage" placeholder="identifier" autofocus/>
+		<input type="submit" class="btn" value="ADD"/>
+	</form>
+	<br/><br/>
+	<form class="form-inline" data-ng-submit="setDefaultLanguage()">
+		<label class="control-label">Set default language</label>
+		<div mean-translate></div>
+		<input type="submit" class="btn" value="SAVE"/>
+	</form>
+</div>
