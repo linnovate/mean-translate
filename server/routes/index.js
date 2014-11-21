@@ -32,7 +32,7 @@ module.exports = function(Translate, app, auth, database) {
         var language = req.params.language;
         if (!isLanguage(language)) return next();
 
-        var index = require(process.cwd() + '/server/controllers/index');
+        var index = require(process.cwd() + '/packages/system/server/controllers/index');
         index.render(req, res);    
     });
 
